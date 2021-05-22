@@ -42,7 +42,7 @@ if args.discovery:
             destlist.append(destdict)
     datadiscovery = json.dumps(
         {'data': destlist})
-    metric = ZabbixMetric('Zabbix server', 'destination.discovery', datadiscovery)
+    metric = ZabbixMetric(args.zabbixhostname, 'destination.discovery', datadiscovery)
     zmetric.append(metric)
     zbxs = ZabbixSender(ZabbixAddress)
     zbxs.send(zmetric)
